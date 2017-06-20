@@ -1,0 +1,33 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "renpy/common/00start.rpy", line 189, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 427, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 437, in <module>
+    renpy.load("_reload-2")
+AttributeError: 'StoreModule' object has no attribute 'check'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "renpy/common/00start.rpy", line 189, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 427, in script
+    python hide:
+  File "G:\renpy-6.99.12.4-sdk\renpy\ast.py", line 814, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "G:\renpy-6.99.12.4-sdk\renpy\python.py", line 1719, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "renpy/common/00keymap.rpy", line 437, in <module>
+    renpy.load("_reload-2")
+  File "G:\renpy-6.99.12.4-sdk\renpy\loadsave.py", line 593, in load
+    roots, log = loads(location.load(filename))
+  File "G:\renpy-6.99.12.4-sdk\renpy\loadsave.py", line 59, in loads
+    return cPickle.loads(s)
+AttributeError: 'StoreModule' object has no attribute 'check'
+
+Windows-7-6.1.7601-SP1
+Ren'Py 6.99.12.4.2187
+I'nao The Quiz 2017 1.0
