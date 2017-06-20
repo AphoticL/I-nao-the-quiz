@@ -29,7 +29,7 @@ init python:
 label start:
     python: 
         turncount = 0
-        qno = "0"
+        qno = "1"
         score1 = 0
         score2 = 0
         ## DEFINING MAIN SYS
@@ -48,6 +48,7 @@ label start:
                 renpy.say(gm, "เป็นคำตอบที่...")
                 renpy.say(n, "น่าเสียดาย ทีม %s!" % (teamname))
             
+
             
 
 
@@ -75,13 +76,17 @@ label ready:
     
 label tutorial:
     
-    tu "คำถามจะมีทั้งหมด 20 คำถาม จะเป็นข้อช้อยส์ทุกข้อ"
+    tu "คำถามจะมีทั้งหมด 20 คำถาม จะมีการผสมรวมกันระหว่าง ข้อช้อยส์ กับ เติมคำ"
     tu "แค่ละข้อจะมีคะแนนให้แตกต่างกันตั้งแต่ 1 - 10 คะแนน แบ่งตามลำดับความยาก"
     tu "ตัวอย่างเช่น..."
-    call question("0")
 
-label question(qno = "1"):
-    python:        
+label fill(qno = "0"):
+    $ que = dataq[qno]["question"]
+    $ ans = renpy.input(que)
+    $ check(qno, ans)
+
+label choices(qno = "1"):
+    python:
             choicearr = []
             for choice in dataq[qno]["choices"]:
                 choicearr.append(dataq[qno]["choices"][choice])
@@ -104,7 +109,9 @@ label question(qno = "1"):
             $ check(qno, choicearr[2])  
         "[choice4]":
             $ check(qno, choicearr[3])
-    
+        
+label tets:
+    c "k"
     
 
 return
